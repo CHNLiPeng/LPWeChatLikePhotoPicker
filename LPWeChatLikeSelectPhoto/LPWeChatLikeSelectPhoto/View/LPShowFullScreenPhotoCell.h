@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface LPShowFullScreenPhotoCell : UICollectionViewCell
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
-
+@property (strong, nonatomic) UIImageView *imageView;
+@property (strong, nonatomic) UIScrollView *scrollView;
+-(void)configureCellWithImage:(UIImage*)image;
 @end

@@ -168,7 +168,10 @@ static NSString *identifier= @"LPShowFullScreenPhotoCell";
 }
 
 #pragma mark - UICollectionViewDelegate
-
+- (void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
+    LPShowFullScreenPhotoCell *showCell=(LPShowFullScreenPhotoCell*)cell;
+    [showCell.scrollView setZoomScale:1 animated:YES];
+}
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [UIView animateWithDuration:0.2 animations:^{

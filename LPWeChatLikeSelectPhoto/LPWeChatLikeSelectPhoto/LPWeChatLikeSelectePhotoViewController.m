@@ -30,6 +30,10 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(finishButtonClicked:) name:@"LPFinishButtonDidClickedNotification" object:nil];
     UIStoryboard *storyBoard=[UIStoryboard storyboardWithName:@"AddPhoto" bundle:nil];
     self.nav=[storyBoard instantiateInitialViewController];
+    
+    LPChoosePhotoViewController *choosePhotoViewController=[storyBoard instantiateViewControllerWithIdentifier:[[LPChoosePhotoViewController class] description]];
+    
+    [self.nav pushViewController:choosePhotoViewController animated:NO];
     [self addChildViewController:self.nav];
     [self.view addSubview:self.nav.view];
 }
@@ -52,6 +56,7 @@
         [self dismissViewControllerAnimated:YES completion:nil];
     }
 }
+
 /*
 #pragma mark - Navigation
 

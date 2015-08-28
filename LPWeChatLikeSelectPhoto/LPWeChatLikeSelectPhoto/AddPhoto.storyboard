@@ -292,23 +292,9 @@
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="525" height="427"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eae-ki-mU9">
-                                                    <rect key="frame" x="0.0" y="0.0" width="525" height="427"/>
-                                                </imageView>
-                                            </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstItem="eae-ki-mU9" firstAttribute="top" secondItem="3nl-bB-qWL" secondAttribute="top" id="TJr-XC-AA8"/>
-                                            <constraint firstAttribute="trailing" secondItem="eae-ki-mU9" secondAttribute="trailing" id="mRk-6L-bpS"/>
-                                            <constraint firstItem="eae-ki-mU9" firstAttribute="leading" secondItem="3nl-bB-qWL" secondAttribute="leading" id="o1m-ZU-a3u"/>
-                                            <constraint firstAttribute="bottom" secondItem="eae-ki-mU9" secondAttribute="bottom" id="w3i-C6-SbV"/>
-                                        </constraints>
-                                        <connections>
-                                            <outlet property="imageView" destination="eae-ki-mU9" id="J0n-v6-Vj9"/>
-                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>

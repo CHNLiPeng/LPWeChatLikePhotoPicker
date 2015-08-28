@@ -9,4 +9,7 @@
 #import <Foundation/Foundation.h>
 @interface SeletedPhotoNumberDataSource : NSObject
 @property (nonatomic,strong,readwrite) NSNumber *selectedPhotoNum;
+@property (nonatomic,assign,readwrite) NSUInteger maxSelectedPhotoNum;
+
++ (instancetype)shareInstance;
 @end
