@@ -24,4 +24,4 @@ A simple iOS WeChat-Like Photo Picker
 * 1. Only chinses supported.
 * 2. Mark-Image's color is not green.
 
-# Issues and Push Request are welcomed!
+## Issues and Push Request are welcomed!
