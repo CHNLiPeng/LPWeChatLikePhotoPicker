@@ -15,4 +15,6 @@ LPWeChatLikeSelectePhotoViewController *vc=[[LPWeChatLikeSelectePhotoViewControl
     [self presentViewController:vc animated:YES completion:NULL];
 
 ~~~
-
+##Problem unsloved.
+* 1. Only chinses supported.
+* 2. Mark-Image's color is not green.
