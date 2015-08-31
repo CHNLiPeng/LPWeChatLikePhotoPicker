@@ -1,6 +1,9 @@
 # LPWeChatLikePhotoPicker
 A simple iOS WeChat-Like Photo Picker
 
+##What it looks like?
+![](/Demo.gif)
+
 ##How to use it？
 
 * 1.Drag LPWeChatLikeSelectPhoto Folder into your project.
@@ -8,7 +11,9 @@ A simple iOS WeChat-Like Photo Picker
 * 3.Write your code like this.
 ~~~objective-c
 
-LPWeChatLikeSelectePhotoViewController *vc=[[LPWeChatLikeSelectePhotoViewController alloc]initWithMaxPhotoNum:9         finishChoosing:^(NSArray *selectedAssetsURLArray) {
+LPWeChatLikeSelectePhotoViewController *vc=[[LPWeChatLikeSelectePhotoViewController alloc]
+initWithMaxPhotoNum:9 
+finishChoosing:^(NSArray *selectedAssetsURLArray) {
        NSLog(@"%@",selectedAssetsURLArray);
        // Do your custom work.
    }];
