@@ -11,9 +11,9 @@ A simple iOS WeChat-Like Photo Picker
 * 3.Write your code like this.
 ~~~objective-c
 
-LPWeChatLikeSelectePhotoViewController *vc=[[LPWeChatLikeSelectePhotoViewController alloc]
-initWithMaxPhotoNum:9 
-finishChoosing:^(NSArray *selectedAssetsURLArray) {
+   LPWeChatLikeSelectePhotoViewController *vc=[[LPWeChatLikeSelectePhotoViewController alloc]
+   initWithMaxPhotoNum:9 
+   finishChoosing:^(NSArray *selectedAssetsURLArray) {
        NSLog(@"%@",selectedAssetsURLArray);
        // Do your custom work.
    }];
@@ -23,3 +23,5 @@ finishChoosing:^(NSArray *selectedAssetsURLArray) {
 ##Problem unsloved.
 * 1. Only chinses supported.
 * 2. Mark-Image's color is not green.
+
+# Issues and Push Request are welcomed!
