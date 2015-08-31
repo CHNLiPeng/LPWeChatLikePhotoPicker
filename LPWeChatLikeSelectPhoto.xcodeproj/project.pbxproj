@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E8334F371B9416970085146B /* icon_selection_h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E8334F351B9416970085146B /* icon_selection_h@2x.png */; };
+		E8334F381B9416970085146B /* icon_selection_h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E8334F361B9416970085146B /* icon_selection_h@3x.png */; };
+		E8334F3B1B94169F0085146B /* icon_selection_n@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E8334F391B94169F0085146B /* icon_selection_n@2x.png */; };
+		E8334F3C1B94169F0085146B /* icon_selection_n@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E8334F3A1B94169F0085146B /* icon_selection_n@3x.png */; };
+		E8334F3F1B9416A70085146B /* icon-照片选择-蓝色.png in Resources */ = {isa = PBXBuildFile; fileRef = E8334F3D1B9416A70085146B /* icon-照片选择-蓝色.png */; };
+		E8334F401B9416A70085146B /* icon-照片选择-蓝色@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E8334F3E1B9416A70085146B /* icon-照片选择-蓝色@3x.png */; };
 		E86C1B491B8CA2C300D30D14 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E86C1B481B8CA2C300D30D14 /* main.m */; };
 		E86C1B4C1B8CA2C300D30D14 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E86C1B4B1B8CA2C300D30D14 /* AppDelegate.m */; };
 		E86C1B541B8CA2C300D30D14 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E86C1B531B8CA2C300D30D14 /* Images.xcassets */; };
@@ -16,7 +22,7 @@
 		E86C1B851B8CA2E600D30D14 /* LPChooseAlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E86C1B701B8CA2E600D30D14 /* LPChooseAlbumViewController.m */; };
 		E86C1B861B8CA2E600D30D14 /* LPChoosePhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E86C1B721B8CA2E600D30D14 /* LPChoosePhotoViewController.m */; };
 		E86C1B871B8CA2E600D30D14 /* LPShowFullScreenPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E86C1B741B8CA2E600D30D14 /* LPShowFullScreenPhotoViewController.m */; };
-		E86C1B881B8CA2E600D30D14 /* SeletedPhotoNumberDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = E86C1B771B8CA2E600D30D14 /* SeletedPhotoNumberDataSource.m */; };
+		E86C1B881B8CA2E600D30D14 /* LPSeletedPhotoConfigureCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = E86C1B771B8CA2E600D30D14 /* LPSeletedPhotoConfigureCenter.m */; };
 		E86C1B891B8CA2E600D30D14 /* ChoosePhotoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E86C1B7A1B8CA2E600D30D14 /* ChoosePhotoModel.m */; };
 		E86C1B8A1B8CA2E600D30D14 /* LPChooseAlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E86C1B7D1B8CA2E600D30D14 /* LPChooseAlbumCell.m */; };
 		E86C1B8B1B8CA2E600D30D14 /* LPChoosePhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E86C1B7F1B8CA2E600D30D14 /* LPChoosePhotoCell.m */; };
@@ -38,6 +44,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E8334F351B9416970085146B /* icon_selection_h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_selection_h@2x.png"; sourceTree = "<group>"; };
+		E8334F361B9416970085146B /* icon_selection_h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_selection_h@3x.png"; sourceTree = "<group>"; };
+		E8334F391B94169F0085146B /* icon_selection_n@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_selection_n@2x.png"; sourceTree = "<group>"; };
+		E8334F3A1B94169F0085146B /* icon_selection_n@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_selection_n@3x.png"; sourceTree = "<group>"; };
+		E8334F3D1B9416A70085146B /* icon-照片选择-蓝色.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-照片选择-蓝色.png"; sourceTree = "<group>"; };
+		E8334F3E1B9416A70085146B /* icon-照片选择-蓝色@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-照片选择-蓝色@3x.png"; sourceTree = "<group>"; };
 		E86C1B431B8CA2C300D30D14 /* LPWeChatLikeSelectPhoto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LPWeChatLikeSelectPhoto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E86C1B471B8CA2C300D30D14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E86C1B481B8CA2C300D30D14 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -55,8 +67,8 @@
 		E86C1B721B8CA2E600D30D14 /* LPChoosePhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LPChoosePhotoViewController.m; sourceTree = "<group>"; };
 		E86C1B731B8CA2E600D30D14 /* LPShowFullScreenPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LPShowFullScreenPhotoViewController.h; sourceTree = "<group>"; };
 		E86C1B741B8CA2E600D30D14 /* LPShowFullScreenPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LPShowFullScreenPhotoViewController.m; sourceTree = "<group>"; };
-		E86C1B761B8CA2E600D30D14 /* SeletedPhotoNumberDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeletedPhotoNumberDataSource.h; sourceTree = "<group>"; };
-		E86C1B771B8CA2E600D30D14 /* SeletedPhotoNumberDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeletedPhotoNumberDataSource.m; sourceTree = "<group>"; };
+		E86C1B761B8CA2E600D30D14 /* LPSeletedPhotoConfigureCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LPSeletedPhotoConfigureCenter.h; sourceTree = "<group>"; };
+		E86C1B771B8CA2E600D30D14 /* LPSeletedPhotoConfigureCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LPSeletedPhotoConfigureCenter.m; sourceTree = "<group>"; };
 		E86C1B791B8CA2E600D30D14 /* ChoosePhotoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoosePhotoModel.h; sourceTree = "<group>"; };
 		E86C1B7A1B8CA2E600D30D14 /* ChoosePhotoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoosePhotoModel.m; sourceTree = "<group>"; };
 		E86C1B7C1B8CA2E600D30D14 /* LPChooseAlbumCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LPChooseAlbumCell.h; sourceTree = "<group>"; };
@@ -92,6 +104,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E8334F341B9416580085146B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E8334F391B94169F0085146B /* icon_selection_n@2x.png */,
+				E8334F3A1B94169F0085146B /* icon_selection_n@3x.png */,
+				E8334F351B9416970085146B /* icon_selection_h@2x.png */,
+				E8334F361B9416970085146B /* icon_selection_h@3x.png */,
+				E8334F3D1B9416A70085146B /* icon-照片选择-蓝色.png */,
+				E8334F3E1B9416A70085146B /* icon-照片选择-蓝色@3x.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		E86C1B3A1B8CA2C300D30D14 = {
 			isa = PBXGroup;
 			children = (
@@ -156,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				E86C1B6D1B8CA2E600D30D14 /* AddPhoto.storyboard */,
+				E8334F341B9416580085146B /* Resources */,
 				E86C1B6E1B8CA2E600D30D14 /* Controller */,
 				E86C1B751B8CA2E600D30D14 /* DataSource */,
 				E86C1B781B8CA2E600D30D14 /* Model */,
@@ -182,8 +208,8 @@
 		E86C1B751B8CA2E600D30D14 /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
-				E86C1B761B8CA2E600D30D14 /* SeletedPhotoNumberDataSource.h */,
-				E86C1B771B8CA2E600D30D14 /* SeletedPhotoNumberDataSource.m */,
+				E86C1B761B8CA2E600D30D14 /* LPSeletedPhotoConfigureCenter.h */,
+				E86C1B771B8CA2E600D30D14 /* LPSeletedPhotoConfigureCenter.m */,
 			);
 			path = DataSource;
 			sourceTree = "<group>";
@@ -292,10 +318,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8334F3C1B94169F0085146B /* icon_selection_n@3x.png in Resources */,
+				E8334F401B9416A70085146B /* icon-照片选择-蓝色@3x.png in Resources */,
+				E8334F381B9416970085146B /* icon_selection_h@3x.png in Resources */,
+				E8334F371B9416970085146B /* icon_selection_h@2x.png in Resources */,
+				E8334F3B1B94169F0085146B /* icon_selection_n@2x.png in Resources */,
 				E86C1B841B8CA2E600D30D14 /* AddPhoto.storyboard in Resources */,
 				E86C1B571B8CA2C300D30D14 /* LaunchScreen.xib in Resources */,
 				E86C1B541B8CA2C300D30D14 /* Images.xcassets in Resources */,
 				E86C1B8F1B8CA60300D30D14 /* Main.storyboard in Resources */,
+				E8334F3F1B9416A70085146B /* icon-照片选择-蓝色.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,7 +350,7 @@
 				E86C1B891B8CA2E600D30D14 /* ChoosePhotoModel.m in Sources */,
 				E86C1B8B1B8CA2E600D30D14 /* LPChoosePhotoCell.m in Sources */,
 				E86C1B871B8CA2E600D30D14 /* LPShowFullScreenPhotoViewController.m in Sources */,
-				E86C1B881B8CA2E600D30D14 /* SeletedPhotoNumberDataSource.m in Sources */,
+				E86C1B881B8CA2E600D30D14 /* LPSeletedPhotoConfigureCenter.m in Sources */,
 				E86C1B921B8CA62100D30D14 /* ViewController.m in Sources */,
 				E86C1B851B8CA2E600D30D14 /* LPChooseAlbumViewController.m in Sources */,
 				E86C1B8D1B8CA2E600D30D14 /* LPShowFullScreenPhotoCell.m in Sources */,
@@ -514,6 +546,7 @@
 				E86C1B681B8CA2C300D30D14 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E86C1B691B8CA2C300D30D14 /* Build configuration list for PBXNativeTarget "LPWeChatLikeSelectPhotoTests" */ = {
 			isa = XCConfigurationList;
@@ -522,6 +555,7 @@
 				E86C1B6B1B8CA2C300D30D14 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

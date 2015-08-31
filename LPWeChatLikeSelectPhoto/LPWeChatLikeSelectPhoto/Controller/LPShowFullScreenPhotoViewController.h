@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SeletedPhotoNumberDataSource.h"
+#import "LPSeletedPhotoConfigureCenter.h"
 @interface LPShowFullScreenPhotoViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic,assign) NSUInteger currentPhotoIndex;
 @property (nonatomic,strong) NSMutableArray *choosePhotoModelArray;
-@property (nonatomic,strong) SeletedPhotoNumberDataSource *dataSource;
+@property (nonatomic,strong) LPSeletedPhotoConfigureCenter *dataSource;
 @end

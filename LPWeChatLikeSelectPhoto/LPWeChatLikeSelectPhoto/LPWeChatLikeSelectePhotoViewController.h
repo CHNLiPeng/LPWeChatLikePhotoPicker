@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 typedef void(^FinishChoosingPhotoBlock)(NSArray *selectedAssetsURLArray);
 @interface LPWeChatLikeSelectePhotoViewController : UIViewController
-#warning 待完成
+
 - (instancetype)initWithMaxPhotoNum:(NSUInteger)maxNum finishChoosing:(FinishChoosingPhotoBlock)finishChoosingBlock;
 @end

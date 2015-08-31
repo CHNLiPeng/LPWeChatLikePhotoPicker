@@ -92,73 +92,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="5RN-GL-s6y">
-                                <rect key="frame" x="0.0" y="64" width="600" height="492"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dzT-VH-9Xf">
-                                    <size key="itemSize" width="144" height="153"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="LPChoosePhotoCell" id="iat-qo-GwE" customClass="LPChoosePhotoCell">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="144" height="153"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zgp-x8-AMx">
-                                                    <rect key="frame" x="0.0" y="0.0" width="144" height="153"/>
-                                                </imageView>
-                                                <view alpha="0.39999999999999963" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rmX-ep-ivE" userLabel="blueView">
-                                                    <rect key="frame" x="0.0" y="0.0" width="144" height="153"/>
-                                                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                </view>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TaX-ta-TI0">
-                                                    <rect key="frame" x="104" y="10" width="30" height="30"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="30" id="fhh-jx-WbZ"/>
-                                                        <constraint firstAttribute="width" constant="30" id="ikB-VX-IMm"/>
-                                                    </constraints>
-                                                    <state key="normal" image="icon_selection_n">
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                    <state key="selected" image="icon-照片选择-蓝色"/>
-                                                    <connections>
-                                                        <action selector="selectionButtonClicked:" destination="iat-qo-GwE" eventType="touchUpInside" id="UcL-e1-fuq"/>
-                                                    </connections>
-                                                </button>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                        <color key="backgroundColor" red="1" green="0.17004036610000001" blue="0.086072052940000005" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="rmX-ep-ivE" secondAttribute="bottom" id="5WM-t3-vsd"/>
-                                            <constraint firstItem="rmX-ep-ivE" firstAttribute="leading" secondItem="iat-qo-GwE" secondAttribute="leading" id="9fc-CM-LTS"/>
-                                            <constraint firstAttribute="trailing" secondItem="Zgp-x8-AMx" secondAttribute="trailing" id="JcD-G8-Vnx"/>
-                                            <constraint firstItem="rmX-ep-ivE" firstAttribute="top" secondItem="iat-qo-GwE" secondAttribute="top" id="QhB-7q-ZS4"/>
-                                            <constraint firstItem="TaX-ta-TI0" firstAttribute="top" secondItem="iat-qo-GwE" secondAttribute="top" constant="10" id="Rm1-Ub-Qc6"/>
-                                            <constraint firstAttribute="trailing" secondItem="rmX-ep-ivE" secondAttribute="trailing" id="TPw-I2-R3K"/>
-                                            <constraint firstAttribute="bottom" secondItem="Zgp-x8-AMx" secondAttribute="bottom" id="VVc-OS-iyB"/>
-                                            <constraint firstItem="Zgp-x8-AMx" firstAttribute="top" secondItem="iat-qo-GwE" secondAttribute="top" id="ViM-qO-PRx"/>
-                                            <constraint firstAttribute="trailing" secondItem="TaX-ta-TI0" secondAttribute="trailing" constant="10" id="lnV-m1-aFd"/>
-                                            <constraint firstItem="Zgp-x8-AMx" firstAttribute="leading" secondItem="iat-qo-GwE" secondAttribute="leading" id="nxw-ZA-Wiw"/>
-                                        </constraints>
-                                        <connections>
-                                            <outlet property="blueView" destination="rmX-ep-ivE" id="VKe-jE-0FO"/>
-                                            <outlet property="imageView" destination="Zgp-x8-AMx" id="g1S-AX-fId"/>
-                                            <outlet property="selectionButton" destination="TaX-ta-TI0" id="VEs-HY-BxE"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
-                                <connections>
-                                    <outlet property="dataSource" destination="WNr-fy-7wq" id="05C-BN-odR"/>
-                                    <outlet property="delegate" destination="WNr-fy-7wq" id="Yaa-mR-5n4"/>
-                                </connections>
-                            </collectionView>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c4J-Dc-iPy">
-                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c4J-Dc-iPy">
+                                <rect key="frame" x="0.0" y="512" width="600" height="44"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mXq-JU-eDs">
                                         <rect key="frame" x="8" y="7" width="30" height="30"/>
@@ -210,7 +145,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="centerY" secondItem="6bw-FP-vIC" secondAttribute="centerY" id="7o7-9q-zET"/>
                                     <constraint firstItem="mXq-JU-eDs" firstAttribute="leading" secondItem="c4J-Dc-iPy" secondAttribute="leading" constant="8" id="9Jy-mz-lbY"/>
@@ -223,6 +158,71 @@
                                     <constraint firstItem="iPF-jZ-hmN" firstAttribute="centerY" secondItem="6bw-FP-vIC" secondAttribute="centerY" id="cFG-bN-cTh"/>
                                 </constraints>
                             </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="5RN-GL-s6y">
+                                <rect key="frame" x="0.0" y="64" width="600" height="448"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dzT-VH-9Xf">
+                                    <size key="itemSize" width="144" height="153"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="LPChoosePhotoCell" id="iat-qo-GwE" customClass="LPChoosePhotoCell">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="144" height="153"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zgp-x8-AMx">
+                                                    <rect key="frame" x="0.0" y="0.0" width="144" height="153"/>
+                                                </imageView>
+                                                <view alpha="0.39999999999999963" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rmX-ep-ivE" userLabel="blueView">
+                                                    <rect key="frame" x="0.0" y="0.0" width="144" height="153"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </view>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TaX-ta-TI0">
+                                                    <rect key="frame" x="104" y="10" width="30" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="fhh-jx-WbZ"/>
+                                                        <constraint firstAttribute="width" constant="30" id="ikB-VX-IMm"/>
+                                                    </constraints>
+                                                    <state key="normal" image="icon_selection_n.png">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <state key="selected" image="icon-照片选择-蓝色.png"/>
+                                                    <connections>
+                                                        <action selector="selectionButtonClicked:" destination="iat-qo-GwE" eventType="touchUpInside" id="UcL-e1-fuq"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" red="1" green="0.17004036610000001" blue="0.086072052940000005" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="rmX-ep-ivE" secondAttribute="bottom" id="5WM-t3-vsd"/>
+                                            <constraint firstItem="rmX-ep-ivE" firstAttribute="leading" secondItem="iat-qo-GwE" secondAttribute="leading" id="9fc-CM-LTS"/>
+                                            <constraint firstAttribute="trailing" secondItem="Zgp-x8-AMx" secondAttribute="trailing" id="JcD-G8-Vnx"/>
+                                            <constraint firstItem="rmX-ep-ivE" firstAttribute="top" secondItem="iat-qo-GwE" secondAttribute="top" id="QhB-7q-ZS4"/>
+                                            <constraint firstItem="TaX-ta-TI0" firstAttribute="top" secondItem="iat-qo-GwE" secondAttribute="top" constant="10" id="Rm1-Ub-Qc6"/>
+                                            <constraint firstAttribute="trailing" secondItem="rmX-ep-ivE" secondAttribute="trailing" id="TPw-I2-R3K"/>
+                                            <constraint firstAttribute="bottom" secondItem="Zgp-x8-AMx" secondAttribute="bottom" id="VVc-OS-iyB"/>
+                                            <constraint firstItem="Zgp-x8-AMx" firstAttribute="top" secondItem="iat-qo-GwE" secondAttribute="top" id="ViM-qO-PRx"/>
+                                            <constraint firstAttribute="trailing" secondItem="TaX-ta-TI0" secondAttribute="trailing" constant="10" id="lnV-m1-aFd"/>
+                                            <constraint firstItem="Zgp-x8-AMx" firstAttribute="leading" secondItem="iat-qo-GwE" secondAttribute="leading" id="nxw-ZA-Wiw"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="blueView" destination="rmX-ep-ivE" id="VKe-jE-0FO"/>
+                                            <outlet property="imageView" destination="Zgp-x8-AMx" id="g1S-AX-fId"/>
+                                            <outlet property="selectionButton" destination="TaX-ta-TI0" id="VEs-HY-BxE"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="WNr-fy-7wq" id="05C-BN-odR"/>
+                                    <outlet property="delegate" destination="WNr-fy-7wq" id="Yaa-mR-5n4"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -396,7 +396,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="icon-照片选择-蓝色" width="24" height="24"/>
-        <image name="icon_selection_n" width="24" height="24"/>
+        <image name="icon-照片选择-蓝色.png" width="48" height="48"/>
+        <image name="icon_selection_n.png" width="24" height="24"/>
     </resources>
 </document>

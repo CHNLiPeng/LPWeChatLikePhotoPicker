@@ -124,9 +124,9 @@ static NSString *identifier= @"LPShowFullScreenPhotoCell";
     return YES;
 }
 - (void)selectChoosePhotoModel:(ChoosePhotoModel*)model {
-    BOOL isGreaterThanNight=self.dataSource.selectedPhotoNum.integerValue>=9&&model.isSelected==NO;
-    if(isGreaterThanNight){
-        UIAlertView *alertView=[[UIAlertView alloc]initWithTitle:@"你最多只能选择9张照片" message:nil delegate:self cancelButtonTitle:@"我知道了" otherButtonTitles:nil, nil];
+    BOOL isIllegal=model.isSelected==NO&&[self.dataSource isSelectedPhotoNumNotLessThanMaxNum];
+    if(isIllegal){
+        UIAlertView *alertView=[[UIAlertView alloc]initWithTitle:[NSString stringWithFormat:@"你最多只能选择%@张照片",@(self.dataSource.maxSelectedPhotoNum)]  message:nil delegate:self cancelButtonTitle:@"我知道了" otherButtonTitles:nil, nil];
         [alertView show];
         return ;
     }
@@ -151,9 +151,17 @@ static NSString *identifier= @"LPShowFullScreenPhotoCell";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     LPShowFullScreenPhotoCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
     ChoosePhotoModel *model=self.choosePhotoModelArray[indexPath.row];
+    
         [self.assetslibrary assetForURL:model.assetsURL resultBlock:^(ALAsset *asset) {
             UIImage *fulScreenImage=[UIImage imageWithCGImage:asset.defaultRepresentation.fullScreenImage];
-            cell.imageView.image =fulScreenImage;
+            SingleTapImageBlock singleTapBlock=^() {
+                [UIView animateWithDuration:0.2 animations:^{
+                    self.bottonView.alpha=self.bottonView.alpha?0:1;
+                    self.navigationController.navigationBar.alpha=self.navigationController.navigationBar.alpha?0:1;
+                }];
+            };
+            
+            [cell configureCellWithImage:fulScreenImage singleTapImage:singleTapBlock];
         } failureBlock:^(NSError *error) {
             
         }];
@@ -171,15 +179,6 @@ static NSString *identifier= @"LPShowFullScreenPhotoCell";
 - (void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
     LPShowFullScreenPhotoCell *showCell=(LPShowFullScreenPhotoCell*)cell;
     [showCell.scrollView setZoomScale:1 animated:YES];
-}
-
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    [UIView animateWithDuration:0.2 animations:^{
-        
-        self.bottonView.alpha=self.bottonView.alpha?0:1;
-        self.navigationController.navigationBar.alpha=self.navigationController.navigationBar.alpha?0:1;
-    }];
-   
 }
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {

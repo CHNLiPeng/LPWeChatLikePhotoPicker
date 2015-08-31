@@ -10,51 +10,29 @@
 
 @interface LPShowFullScreenPhotoCell ()<UIScrollViewDelegate>
 
-
-
+@property (nonatomic,copy) SingleTapImageBlock singleTapImageBlock;
+@property (nonatomic,strong) UITapGestureRecognizer *singleTapGesture;
+@property (nonatomic,strong) UITapGestureRecognizer *doubleTapGesture;
 @property (nonatomic,assign) CGFloat zoomScale;
 @end
 
 @implementation LPShowFullScreenPhotoCell
 -(void)awakeFromNib {
     [super awakeFromNib];
-    self.scrollView=[[UIScrollView alloc]initWithFrame:[UIScreen mainScreen].bounds];
-    //self.scrollView.frame=self.contentView.frame;
-    self.scrollView.maximumZoomScale=2.0;
-    self.scrollView.minimumZoomScale=1.0;
+    [self.scrollView addSubview:self.imageView];
     self.scrollView.contentSize=self.contentView.bounds.size;
-    self.scrollView.delegate=self;
-    self.zoomScale=1;
+    [self.imageView addGestureRecognizer:self.doubleTapGesture];
+    [self.imageView addGestureRecognizer:self.singleTapGesture];
+    [self.singleTapGesture requireGestureRecognizerToFail:self.doubleTapGesture];
     [self.contentView addSubview:self.scrollView];
-    // Add gesture,double tap zoom imageView.
-    
-    self.imageView=[[UIImageView alloc]initWithFrame:[UIScreen mainScreen].bounds];
-    self.imageView.contentMode=UIViewContentModeScaleAspectFit;
-    UITapGestureRecognizer *doubleTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self
-                                                                                      action:@selector(handleDoubleTap:)];
-    [doubleTapGesture setNumberOfTapsRequired:2];
-    self.imageView.userInteractionEnabled=YES;
-    [ self.imageView addGestureRecognizer:doubleTapGesture];
-    
-    self.scrollView.contentSize=self.contentView.bounds.size;
-    [self.scrollView addSubview:self.imageView];
-    
+
 }
-- (void)configureCellWithImage:(UIImage *)image {
-    self.imageView=[[UIImageView alloc]initWithFrame:[UIScreen mainScreen].bounds];
-    self.imageView.contentMode=UIViewContentModeScaleAspectFit;
-    UITapGestureRecognizer *doubleTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self
-                                                                                       action:@selector(handleDoubleTap:)];
-    [doubleTapGesture setNumberOfTapsRequired:2];
-    self.imageView.userInteractionEnabled=YES;
-    [ self.imageView addGestureRecognizer:doubleTapGesture];
-    
-    
-    [self.scrollView addSubview:self.imageView];
+- (void)configureCellWithImage:(UIImage *)image  singleTapImage:(SingleTapImageBlock)singleTapImageBlock {
+    self.singleTapImageBlock=singleTapImageBlock;
+    self.imageView.image=image;
 }
 
 -(void)handleDoubleTap:(UIGestureRecognizer*)gesture {
-    NSLog(@"%s",__func__);
     if(self.zoomScale==1)
     {
         
@@ -62,7 +40,7 @@
         self.zoomScale=2.0;
         CGSize contentSize=self.scrollView.contentSize;
         NSLog(@"%f,  %f",contentSize.height,contentSize.width);
-        CGRect rect=self.scrollView.frame;
+//        CGRect rect=self.scrollView.frame;
         contentSize.height=contentSize.height;
         self.scrollView.contentSize=contentSize;
         
@@ -74,11 +52,53 @@
     }
     
 }
+-(void)handleSingleTap:(UIGestureRecognizer*)gesture {
+    if(self.singleTapImageBlock)
+    {
+        self.singleTapImageBlock();
+    }
+}
 #pragma mark - UIScrollViewDelegate
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
     return self.imageView;
 }
--(void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
-    NSLog(@"%s",__func__);
+
+#pragma makr - Setter & Getter 
+-(UITapGestureRecognizer *)doubleTapGesture {
+    if(!_doubleTapGesture) {
+        _doubleTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                                           action:@selector(handleDoubleTap:)];
+        [_doubleTapGesture setNumberOfTapsRequired:2];
+    }
+    return _doubleTapGesture;
 }
+
+-(UITapGestureRecognizer *)singleTapGesture {
+    if(!_singleTapGesture) {
+        _singleTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                    action:@selector(handleSingleTap:)];
+        _singleTapGesture.delaysTouchesBegan=YES;
+    }
+    return _singleTapGesture;
+}
+
+- (UIScrollView *)scrollView {
+    if(!_scrollView) {
+        _scrollView=[[UIScrollView alloc]initWithFrame:[UIScreen mainScreen].bounds];
+        _scrollView.maximumZoomScale=2.0;
+        _scrollView.minimumZoomScale=1.0;
+        _scrollView.delegate=self;
+        _zoomScale=1;
+    }
+    return _scrollView;
+}
+- (UIImageView *)imageView {
+    if(!_imageView) {
+        _imageView=[[UIImageView alloc]initWithFrame:self.scrollView.bounds];
+        _imageView.contentMode=UIViewContentModeScaleAspectFit;
+        _imageView.userInteractionEnabled=YES;
+    }
+    return _imageView;
+}
+
 @end

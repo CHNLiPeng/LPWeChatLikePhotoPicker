@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "LPWeChatLikeSelectePhotoViewController.h"
+@class LPSeletedPhotoConfigureCenter;
 @interface LPChoosePhotoViewController : UIViewController
 @property (nonatomic,strong) NSURL *assetsGroupURL;
+@property (nonatomic,strong) LPSeletedPhotoConfigureCenter *dataSource;
 @end

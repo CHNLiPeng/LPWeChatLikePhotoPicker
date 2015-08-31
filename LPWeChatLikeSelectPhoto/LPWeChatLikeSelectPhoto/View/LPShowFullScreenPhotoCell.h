@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+typedef void(^SingleTapImageBlock)();
 @interface LPShowFullScreenPhotoCell : UICollectionViewCell
 @property (strong, nonatomic) UIImageView *imageView;
 @property (strong, nonatomic) UIScrollView *scrollView;
--(void)configureCellWithImage:(UIImage*)image;
+-(void)configureCellWithImage:(UIImage*)image singleTapImage:(SingleTapImageBlock)singleTapImageBlock;
 @end

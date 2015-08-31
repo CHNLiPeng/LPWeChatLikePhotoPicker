@@ -9,6 +9,7 @@
 #import "LPWeChatLikeSelectePhotoViewController.h"
 #import "LPChoosePhotoViewController.h"
 #import "LPChooseAlbumViewController.h"
+#import "LPSeletedPhotoConfigureCenter.h"
 @interface LPWeChatLikeSelectePhotoViewController ()
 @property (nonatomic,copy) FinishChoosingPhotoBlock finishChoosingPhotoBlock;
 @property (nonatomic,assign) NSUInteger maxNum;
@@ -17,33 +18,33 @@
 
 @implementation LPWeChatLikeSelectePhotoViewController
 - (instancetype)initWithMaxPhotoNum:(NSUInteger)maxNum finishChoosing:(FinishChoosingPhotoBlock)finishChoosingBlock {
+    NSAssert(maxNum!=0, @"maxPhotoNum must not be Zero(0)");
+    NSAssert(finishChoosingBlock!=nil, @"finishChoosingBlock must not be nil");
     self=[super init];
     if(self) {
         _finishChoosingPhotoBlock=finishChoosingBlock;
+        _maxNum=maxNum;
     }
     return self;
 }
+#pragma mark - Life Cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cancelButtonClicked:) name:@"LPCancelButtonDidClickedNotification" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(finishButtonClicked:) name:@"LPFinishButtonDidClickedNotification" object:nil];
-    UIStoryboard *storyBoard=[UIStoryboard storyboardWithName:@"AddPhoto" bundle:nil];
-    self.nav=[storyBoard instantiateInitialViewController];
-    
-    LPChoosePhotoViewController *choosePhotoViewController=[storyBoard instantiateViewControllerWithIdentifier:[[LPChoosePhotoViewController class] description]];
-    
-    [self.nav pushViewController:choosePhotoViewController animated:NO];
+    [self registerNotification];
+    [[LPSeletedPhotoConfigureCenter shareInstance] configureMaxSelectedPhotoNum:self.maxNum];
     [self addChildViewController:self.nav];
     [self.view addSubview:self.nav.view];
 }
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter]removeObserver:self];
 }
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark - Register Notification
+- (void)registerNotification {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cancelButtonClicked:) name:@"LPCancelButtonDidClickedNotification" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(finishButtonClicked:) name:@"LPFinishButtonDidClickedNotification" object:nil];
 }
+
 #pragma mark - Notification 
 - (void)cancelButtonClicked:(NSNotification*)notification {
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -57,6 +58,18 @@
     }
 }
 
+#pragma mark - Setter & Getter 
+-(UINavigationController *)nav {
+    if(!_nav) {
+        UIStoryboard *storyBoard=[UIStoryboard storyboardWithName:@"AddPhoto" bundle:nil];
+        _nav=[storyBoard instantiateInitialViewController];
+        
+        LPChoosePhotoViewController *choosePhotoViewController=[storyBoard instantiateViewControllerWithIdentifier:[[LPChoosePhotoViewController class] description]];
+        
+        [self.nav pushViewController:choosePhotoViewController animated:NO];
+    }
+    return _nav;
+}
 /*
 #pragma mark - Navigation
 

@@ -7,9 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-@interface SeletedPhotoNumberDataSource : NSObject
+@interface LPSeletedPhotoConfigureCenter : NSObject
 @property (nonatomic,strong,readwrite) NSNumber *selectedPhotoNum;
-@property (nonatomic,assign,readwrite) NSUInteger maxSelectedPhotoNum;
-
+@property (nonatomic,assign,readonly) NSUInteger maxSelectedPhotoNum;
 + (instancetype)shareInstance;
+- (void)configureMaxSelectedPhotoNum:(NSUInteger)maxNum;
+
+- (void)resetSelectedPhotoNum;
+- (BOOL)isSelectedPhotoNumNotLessThanMaxNum;
 @end

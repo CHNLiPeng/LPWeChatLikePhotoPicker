@@ -8,6 +8,8 @@
 
 #import "ViewController.h"
 #import "LPWeChatLikeSelectPhoto/LPWeChatLikeSelectePhotoViewController.h"
+#import "LPChoosePhotoViewController.h"
+#import "LPSeletedPhotoConfigureCenter.h"
 @interface ViewController ()
 
 @end
@@ -24,7 +26,9 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)buttonClicked:(id)sender {
-   LPWeChatLikeSelectePhotoViewController *vc=[[LPWeChatLikeSelectePhotoViewController alloc]initWithMaxPhotoNum:9 finishChoosing:^(NSArray *selectedAssetsURLArray) {
+    
+    
+   LPWeChatLikeSelectePhotoViewController *vc=[[LPWeChatLikeSelectePhotoViewController alloc]initWithMaxPhotoNum:2 finishChoosing:^(NSArray *selectedAssetsURLArray) {
        NSLog(@"%@",selectedAssetsURLArray);
    }];
     [self presentViewController:vc animated:YES completion:NULL];

@@ -14,7 +14,7 @@
 #import <AssetsLibrary/AssetsLibrary.h>
 #import "LPShowFullScreenPhotoViewController.h"
 #import "ChoosePhotoModel.h"
-#import "SeletedPhotoNumberDataSource.h"
+#import "LPSeletedPhotoConfigureCenter.h"
 #import "LPSelectedPhotoNumBackgroundView.h"
 static NSString *identifier =@"LPChoosePhotoCell";
 #define NAVBAR_CHANGE_POINT 50
@@ -27,25 +27,28 @@ static NSString *identifier =@"LPChoosePhotoCell";
 @property (weak, nonatomic) IBOutlet LPSelectedPhotoNumBackgroundView *selectedPhotoNumBackgroundView;
 
 @property (nonatomic,strong) NSMutableArray *choosePhotoModelArray;
-@property (nonatomic,strong) SeletedPhotoNumberDataSource *dataSource;
+
 @property (nonatomic,strong) ALAssetsLibrary *assetslibrary;
 @end
 
 @implementation LPChoosePhotoViewController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.dataSource=[[SeletedPhotoNumberDataSource alloc]init];
+    self.dataSource=[LPSeletedPhotoConfigureCenter shareInstance];
+    [self.dataSource resetSelectedPhotoNum];
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    
     self.choosePhotoModelArray=[NSMutableArray array];
     [self.dataSource addObserver:self forKeyPath:@"selectedPhotoNum" options:NSKeyValueObservingOptionNew context:NULL];
-    
-    
-    self.automaticallyAdjustsScrollViewInsets = NO;
+
+
     [self customizeCollectionLayout];
     if(self.assetsGroupURL==nil) {
-        [self getImgs];
+        [self getCameralRollURL];
         
     }else
     {
@@ -112,8 +115,10 @@ static NSString *identifier =@"LPChoosePhotoCell";
                 
             }
         }else {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.collectionView reloadData];
+            });
             
-            [self.collectionView reloadData];
         }
         
     };
@@ -127,6 +132,41 @@ static NSString *identifier =@"LPChoosePhotoCell";
         [group enumerateAssetsUsingBlock:groupEnumerAtion];
     } failureBlock:^(NSError *error) {
     }];
+}
+-(void)getCameralRollURL{
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        ALAssetsLibraryAccessFailureBlock failureblock = ^(NSError *myerror){
+            NSLog(@"相册访问失败 =%@", [myerror localizedDescription]);
+            if ([myerror.localizedDescription rangeOfString:@"Global denied access"].location!=NSNotFound) {
+                NSLog(@"无法访问相册.请在'设置->定位服务'设置为打开状态.");
+            }else{
+                NSLog(@"相册访问失败.");
+            }
+        };
+        
+        ALAssetsLibraryGroupsEnumerationResultsBlock
+        libraryGroupsEnumeration = ^(ALAssetsGroup* group, BOOL* stop){
+            if (group!=nil&&group.numberOfAssets>0) {
+                NSString *groupStr=[NSString stringWithFormat:@"%@",group];//获取相簿的组
+                NSString *groupStrWithHead=[groupStr substringFromIndex:16 ] ;
+                NSArray *arr=[[NSArray alloc] init];
+                arr=[groupStrWithHead componentsSeparatedByString:@","];
+                NSString *g2=[[arr objectAtIndex:0] substringFromIndex:5];
+                if ([g2 isEqualToString:@"Camera Roll"]) {
+                    self.assetsGroupURL=[group valueForProperty:ALAssetsGroupPropertyURL];
+                    [self loadAssets];
+                    *stop = YES;
+                }
+            }
+        };
+        
+        [self.assetslibrary enumerateGroupsWithTypes:ALAssetsGroupAll
+                                          usingBlock:libraryGroupsEnumeration
+                                        failureBlock:failureblock];
+    });
+    
 }
 - (NSArray*)gernateSelectedAssetsURLArray {
     NSMutableArray *selectedModelArray=[NSMutableArray array];
@@ -179,9 +219,9 @@ static NSString *identifier =@"LPChoosePhotoCell";
         cell.selectionButton.selected=model.isSelected;
         __weak __typeof(LPChoosePhotoCell*)weakCell = cell;
         cell.selectionButtonClickedBlock=^(){
-            BOOL isGreaterThanNight=self.dataSource.selectedPhotoNum.integerValue>=9&&model.isSelected==NO;
-            if(isGreaterThanNight){
-                UIAlertView *alertView=[[UIAlertView alloc]initWithTitle:@"你最多只能选择9张照片" message:nil delegate:self cancelButtonTitle:@"我知道了" otherButtonTitles:nil, nil];
+            BOOL isIllegal=model.isSelected==NO&&[self.dataSource isSelectedPhotoNumNotLessThanMaxNum];
+            if(isIllegal){
+                UIAlertView *alertView=[[UIAlertView alloc]initWithTitle:[NSString stringWithFormat:@"你最多只能选择%@张照片",@(self.dataSource.maxSelectedPhotoNum)]  message:nil delegate:self cancelButtonTitle:@"我知道了" otherButtonTitles:nil, nil];
                 [alertView show];
                 return ;
             }
@@ -240,44 +280,6 @@ static NSString *identifier =@"LPChoosePhotoCell";
         }
     }
 }
--(void)getImgs{
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        
-        ALAssetsLibraryAccessFailureBlock failureblock = ^(NSError *myerror){
-            NSLog(@"相册访问失败 =%@", [myerror localizedDescription]);
-            if ([myerror.localizedDescription rangeOfString:@"Global denied access"].location!=NSNotFound) {
-                NSLog(@"无法访问相册.请在'设置->定位服务'设置为打开状态.");
-            }else{
-                NSLog(@"相册访问失败.");
-            }
-        };
-        
-        ALAssetsLibraryGroupsEnumerationResultsBlock
-        libraryGroupsEnumeration = ^(ALAssetsGroup* group, BOOL* stop){
-            if (group!=nil&&group.numberOfAssets>0) {
-                NSString *groupStr=[NSString stringWithFormat:@"%@",group];//获取相簿的组
-                NSLog(@"gg:%@",groupStr);//gg:ALAssetsGroup - Name:Camera Roll, Type:Saved Photos, Assets count:71
-                
-                NSString *groupStrWithHead=[groupStr substringFromIndex:16 ] ;
-                NSArray *arr=[[NSArray alloc] init];
-                arr=[groupStrWithHead componentsSeparatedByString:@","];
-                NSString *g2=[[arr objectAtIndex:0] substringFromIndex:5];
-                if ([g2 isEqualToString:@"Camera Roll"]) {
-                    self.assetsGroupURL=[group valueForProperty:ALAssetsGroupPropertyURL];
-                    [self loadAssets];
-                }
-            }else {
-               // [self.collectionView reloadData];
-            }
-        };
-        
-        
-        [self.assetslibrary enumerateGroupsWithTypes:ALAssetsGroupAll
-                                    usingBlock:libraryGroupsEnumeration
-                                  failureBlock:failureblock];
-    });
-    
-}
+
 
 @end
