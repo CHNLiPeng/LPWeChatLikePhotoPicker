@@ -10,6 +10,7 @@ A simple iOS WeChat-Like Photo Picker
 
 LPWeChatLikeSelectePhotoViewController *vc=[[LPWeChatLikeSelectePhotoViewController alloc]initWithMaxPhotoNum:9         finishChoosing:^(NSArray *selectedAssetsURLArray) {
        NSLog(@"%@",selectedAssetsURLArray);
+       // Do your custom work.
    }];
     [self presentViewController:vc animated:YES completion:NULL];
 
