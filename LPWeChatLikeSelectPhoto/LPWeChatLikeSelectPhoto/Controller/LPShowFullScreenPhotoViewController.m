@@ -186,6 +186,7 @@ static NSString *identifier= @"LPShowFullScreenPhotoCell";
     ChoosePhotoModel *model =self.choosePhotoModelArray[indexPath.row];
     self.selectButton.selected=model.isSelected;
 }
+
 #pragma mark - Setter And Getter
 - (ALAssetsLibrary *)assetslibrary {
     if(!_assetslibrary) {
@@ -204,6 +205,7 @@ static NSString *identifier= @"LPShowFullScreenPhotoCell";
     }
     return _selectButton;
 }
+
 #pragma mark - KVO
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     if([keyPath isEqualToString:@"selectedPhotoNum"])
