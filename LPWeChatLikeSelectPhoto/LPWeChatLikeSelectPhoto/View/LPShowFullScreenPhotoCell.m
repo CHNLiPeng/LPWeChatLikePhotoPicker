@@ -35,19 +35,21 @@
 -(void)handleDoubleTap:(UIGestureRecognizer*)gesture {
     if(self.zoomScale==1)
     {
-        
-        [self.scrollView setZoomScale:2.0 animated:YES];
-        self.zoomScale=2.0;
+        CGFloat scale = self.scrollView.frame.size.height/(self.imageView.image.size.height/3);
+        [self.scrollView setZoomScale:scale animated:YES];
+        self.zoomScale=scale;
         CGSize contentSize=self.scrollView.contentSize;
-        NSLog(@"%f,  %f",contentSize.height,contentSize.width);
-//        CGRect rect=self.scrollView.frame;
-        contentSize.height=contentSize.height;
-        self.scrollView.contentSize=contentSize;
+        NSLog(@"%f,%f",contentSize.height,contentSize.width);
+//        NSLog(@"%f,  %f",contentSize.height,contentSize.width);
+//        contentSize.height=contentSize.height;
+      //  self.scrollView.contentSize=self.imageView.image.s;
         
     } else
     {
         [self.scrollView setZoomScale:1.0 animated:YES];
         self.zoomScale=1.0;
+        CGSize contentSize=self.scrollView.contentSize;
+        NSLog(@"%f,%f",contentSize.height,contentSize.width);
         
     }
     
@@ -85,7 +87,7 @@
 - (UIScrollView *)scrollView {
     if(!_scrollView) {
         _scrollView=[[UIScrollView alloc]initWithFrame:[UIScreen mainScreen].bounds];
-        _scrollView.maximumZoomScale=2.0;
+        _scrollView.maximumZoomScale=5.0;
         _scrollView.minimumZoomScale=1.0;
         _scrollView.delegate=self;
         _zoomScale=1;

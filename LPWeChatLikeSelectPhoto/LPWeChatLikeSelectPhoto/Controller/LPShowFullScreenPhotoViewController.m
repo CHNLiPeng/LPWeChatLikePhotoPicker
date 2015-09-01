@@ -199,8 +199,8 @@ static NSString *identifier= @"LPShowFullScreenPhotoCell";
         [_selectButton addTarget:self action:@selector(selectButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
         _selectButton.frame=CGRectMake(0, 0, 44,44);
         _selectButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
-        [_selectButton setImage:[UIImage imageNamed:@"icon_selection_h"] forState:UIControlStateNormal];
-        [_selectButton setImage:[UIImage imageNamed:@"icon-照片选择-蓝色"] forState:UIControlStateSelected];
+        [_selectButton setImage:[UIImage imageNamed:@"icon_selection_h@3x"] forState:UIControlStateNormal];
+        [_selectButton setImage:[UIImage imageNamed:@"icon-照片选择-蓝色@3x"] forState:UIControlStateSelected];
     }
     return _selectButton;
 }

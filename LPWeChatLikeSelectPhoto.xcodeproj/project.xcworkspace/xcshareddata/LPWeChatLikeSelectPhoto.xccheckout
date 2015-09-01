@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>8B2A4A6B-582C-43D0-8183-3659132DBBD6</string>
+	<key>IDESourceControlProjectName</key>
+	<string>LPWeChatLikeSelectPhoto</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>A1351FA08D6ED3AF3B9D9EDB4BEAB3327913C1BF</key>
+		<string>https://github.com/CHNLiPeng/LPWeChatLikePhotoPicker.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>LPWeChatLikeSelectPhoto.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>A1351FA08D6ED3AF3B9D9EDB4BEAB3327913C1BF</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/CHNLiPeng/LPWeChatLikePhotoPicker.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>A1351FA08D6ED3AF3B9D9EDB4BEAB3327913C1BF</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>A1351FA08D6ED3AF3B9D9EDB4BEAB3327913C1BF</string>
+			<key>IDESourceControlWCCName</key>
+			<string>LPWeChatLikePhotoPicker</string>
+		</dict>
+	</array>
+</dict>
+</plist>

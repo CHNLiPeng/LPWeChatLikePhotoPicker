@@ -187,10 +187,10 @@
                                                         <constraint firstAttribute="height" constant="30" id="fhh-jx-WbZ"/>
                                                         <constraint firstAttribute="width" constant="30" id="ikB-VX-IMm"/>
                                                     </constraints>
-                                                    <state key="normal" image="icon_selection_n.png">
+                                                    <state key="normal" image="icon_selection_h@3x.png">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
-                                                    <state key="selected" image="icon-照片选择-蓝色.png"/>
+                                                    <state key="selected" image="icon-照片选择-蓝色@3x.png"/>
                                                     <connections>
                                                         <action selector="selectionButtonClicked:" destination="iat-qo-GwE" eventType="touchUpInside" id="UcL-e1-fuq"/>
                                                     </connections>
@@ -396,7 +396,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="icon-照片选择-蓝色.png" width="48" height="48"/>
-        <image name="icon_selection_n.png" width="24" height="24"/>
+        <image name="icon-照片选择-蓝色@3x.png" width="72" height="72"/>
+        <image name="icon_selection_h@3x.png" width="72" height="72"/>
     </resources>
 </document>
