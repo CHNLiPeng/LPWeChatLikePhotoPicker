@@ -151,13 +151,14 @@ static NSString *identifier= @"LPShowFullScreenPhotoCell";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     LPShowFullScreenPhotoCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
     ChoosePhotoModel *model=self.choosePhotoModelArray[indexPath.row];
-    
+    __weak LPShowFullScreenPhotoViewController* weakSelf = self;
         [self.assetslibrary assetForURL:model.assetsURL resultBlock:^(ALAsset *asset) {
             UIImage *fulScreenImage=[UIImage imageWithCGImage:asset.defaultRepresentation.fullScreenImage];
             SingleTapImageBlock singleTapBlock=^() {
+                LPShowFullScreenPhotoViewController *strongSelf = weakSelf;
                 [UIView animateWithDuration:0.2 animations:^{
-                    self.bottonView.alpha=self.bottonView.alpha?0:1;
-                    self.navigationController.navigationBar.alpha=self.navigationController.navigationBar.alpha?0:1;
+                    strongSelf.bottonView.alpha=strongSelf.bottonView.alpha?0:1;
+                    strongSelf.navigationController.navigationBar.alpha=strongSelf.navigationController.navigationBar.alpha?0:1;
                 }];
             };
             
