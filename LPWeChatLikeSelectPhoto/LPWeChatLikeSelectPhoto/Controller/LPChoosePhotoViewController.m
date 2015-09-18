@@ -218,20 +218,21 @@ static NSString *identifier =@"LPChoosePhotoCell";
         cell.imageView.image =thumbnailImage;
         cell.selectionButton.selected=model.isSelected;
         __weak __typeof(LPChoosePhotoCell*)weakCell = cell;
+           __weak LPChoosePhotoViewController *weakSelf = self;
         cell.selectionButtonClickedBlock=^(){
-            BOOL isIllegal=model.isSelected==NO&&[self.dataSource isSelectedPhotoNumNotLessThanMaxNum];
+            BOOL isIllegal=model.isSelected==NO&&[weakSelf.dataSource isSelectedPhotoNumNotLessThanMaxNum];
             if(isIllegal){
-                UIAlertView *alertView=[[UIAlertView alloc]initWithTitle:[NSString stringWithFormat:@"你最多只能选择%@张照片",@(self.dataSource.maxSelectedPhotoNum)]  message:nil delegate:self cancelButtonTitle:@"我知道了" otherButtonTitles:nil, nil];
+                UIAlertView *alertView=[[UIAlertView alloc]initWithTitle:[NSString stringWithFormat:@"你最多只能选择%@张照片",@(weakSelf.dataSource.maxSelectedPhotoNum)]  message:nil delegate:weakSelf cancelButtonTitle:@"我知道了" otherButtonTitles:nil, nil];
                 [alertView show];
                 return ;
             }
             model.isSelected=!model.isSelected;
             model.latestSelectedTime=[NSDate date];
             NSUInteger count=0;
-            for (ChoosePhotoModel *model in self.choosePhotoModelArray) {
+            for (ChoosePhotoModel *model in weakSelf.choosePhotoModelArray) {
                 count=model.isSelected?++count:count;
             }
-            self.dataSource.selectedPhotoNum=@(count);
+            weakSelf.dataSource.selectedPhotoNum=@(count);
             weakCell.selectionButton.selected=model.isSelected;
         };
         } failureBlock:nil];

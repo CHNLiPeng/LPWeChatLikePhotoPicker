@@ -21,9 +21,7 @@
    
 }
 - (IBAction)selectionButtonClicked:(UIButton *)sender {
-    //sender.selected=!sender.selected;
-   // self.blueView.hidden=!sender.selected;
-    
+
     if(self.selectionButtonClickedBlock) {
         self.selectionButtonClickedBlock();
     }
